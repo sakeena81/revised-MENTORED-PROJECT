@@ -2,72 +2,86 @@
 <html>
     <head>
         <title>HR FORM</title>
-        <link href= "HRFORM.css"rel = "stylesheet" type = "text/css">
-		<script src= "Records.js"> </script>
-    <script src= "Functions.js"> </script>
-     
+        <script src= "Records.js"> type="text/javascript"</script>
+        <script src= "Functions.js">type="text/javascript" </script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
     </head> 
 <body onload="show(records)">
-  <h3 style="color: rgb(5, 3, 8);">QA PROJECT</h3>
-  <form>
-  <div>
-    <br>
-    <div id = "editperson" hidden>
-                <div id="head"> 
-                    <h3 id="heading">EDIT</h3> 
-                </div>                 
-                <div id="" class="input"> 
-                    <input id="editNI" type="text" 
-                        Placeholder="NInumber" name="ninumber" 
-                        readonly> 
-                </div> 
-                <div id="" class="input"> 
-                    <input id="editName" type="text" placeholder= 
-                        "Fullname" name="fullname" required> 
-                </div> 
-                <div id="" class="input"> 
-                    <input id="editPhone" type="text" 
-                        name="Phone" 
-                        placeholder="phone"> 
-                </div> 
-              
-                <div id="" class="input"> 
-                    <input id="editAddress" type="text" 
-                        Placeholder="Address" name="address" 
-                        required> 
-                </div> 
-                <div id="" class="input"> 
-                    <input id="editDept" type="text" placeholder= 
-                        "Department" name="department" required> 
-                </div> 
-                <div>
-                <div class="id input"> 
-                    <input type="submit" class="btn btn-success" value="Save" onclick="save()">
-                    <input type="submit" class="btn btn-success" value="Cancel" onclick="cancel()"></div>
-                </div>  
-    </div>
-  </form> 
-</body>
-<script> 
+  <h4 style="color: rgb(5, 3, 8);">QA PROJECT</h4>
+  <form id="editperson" hidden class="pure-form pure-form-aligned">
+  <div id="head">
+    <h1 id="heading">EDIT</h1>
+  </div>
+    <div id ="" class="input">
+      <input id="editNI" type="text"
+      placeholder="NInumber" name="ninumber"
+      readonly></div>
+      
+      <div id="" class="input"> 
+      <input id="editName" type="text" 
+      placeholder="Fullname" name="fullname" required></div> 
 
+    <div id="" class="input">
+      <input id="editPhone" type="text" 
+      name="Phone" 
+      placeholder="phone"></div> 
+      
+      <div id="" class="input"> 
+        <input id="editAddress" type="text" 
+         Placeholder="Address" name="address"required></div> 
 
-</script> 
+     <div id="" class="input">
+       <input id="editDept" type="text" 
+       placeholder="Department" name="department">
+      </div> 
+      <div>
+         <div class="id input"> 
+                    <input type="button" class="btn btn-success" value="Save" onclick="save()">
+                    <input type="button" class="btn btn-success" value="Cancel" onclick="cancel()"></div>
+                </div>
+              </div>
+            </form>
+
+<div id="newPersonBtn">
+  <button class="pure-button pure-button-active" 
+  value="Add new person" onclick="showNewPerson()">ADD NEW EMPLOYEE HERE</button>
+</div>
+      <form id="newPerson" class="pure-form pure-form-aligned" hidden>
+        <fieldset>
+          <div class="pure-control-group">
+            <label for="aligned-name">NI number</label>
+            <input type="text" id="addNI"/>
+          </div>
+          
+          <div class="pure-control-group">
+            <label for="addFullName">Full Name</label>
+            <input type="text" id="addFullName"/>
+          </div>
+          
+          <div class="pure-control-group">
+            <label for="addPhone">Phone</label>
+            <input type="text" id="addPhone"/>
+          </div>
+          
+          <div class="pure-control-group">
+            <label for="addAdd">Address</label>
+            <input type="text" id="addAdd"/>
+          </div>
+          
+          <div class="pure-control-group">
+            <label for="addDep">Department</label>
+            <input type="text" id="addDep"/>
+          </div>
+          
+          <div>
+            <button type="button" onclick="addRecord()" 
+            class="pure-button pure-button-primary">Submit</button>
+          </div>
+              </fieldset>
+          </form>                            
 <div>
-    <table id="table">
-         <thead> 
-           <tr>
-           <th>NI number <input id="addNI"> </th>
-           <th>Full name <input id="addFullName"></th>
-           <th>Phone <input id="addPhone"></th>
-           <th>Address <input id="addAdd"></th>
-            <th>Department<input id="addDep"></th>
-           <th>Actions
-                <input type="button" value="submit" onclick="addRecord()">
-              </th> 
-            </thead>   
-            </table>  
-            </div> <br>                            
-<div><table id = "employeetable" style="width:100%">
+  <br>
+  <table class = "pure-table pure-table-bordered" id="employeetable">
     <thead>
         <tr>
           <th>NI number</th>
@@ -75,23 +89,24 @@
           <th>Phone</th>
           <th>Address</th>
           <th>Department<section class="header">
-            <select name="filter" id="filter">
+            <select name="filter" id="filter" onchange="displayFilteredData()">
               <option value="0" selected disabled hidden>Department</option>
               <option value="All">All</option>
               <option value="IT">IT</option>
               <option value="Sales">Sales</option>
               <option value="HR">HR</option>
             </select>
-            <button class="header_btn" onclick="displayFilteredData();">Filter By Department</button>
-          </section></th>
-          <th>Actions<br>  
+          </section>
+        </th>
+          <th>
+            Actions
+            </th> 
         </tr>
     </thead>
     <tbody>
     </tbody>
       </table>
     </div>
-<body onload="show(records)">
-
+  </br>
 </body>
 </html>
