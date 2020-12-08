@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HR FORM</title>
+        <link href= "HRFORM.css"rel = "stylesheet" type = "text/css">
+		<script src= "Records.js"> </script>
+    <script src= "Functions.js"> </script>
+     
+    </head> 
+<body onload="show(records)">
+  <h3 style="color: rgb(5, 3, 8);">QA PROJECT</h3>
+  <form>
+  <div>
+    <br>
+    <div id = "editperson" hidden>
+                <div id="head"> 
+                    <h3 id="heading">EDIT</h3> 
+                </div>                 
+                <div id="" class="input"> 
+                    <input id="editNI" type="text" 
+                        Placeholder="NInumber" name="ninumber" 
+                        readonly> 
+                </div> 
+                <div id="" class="input"> 
+                    <input id="editName" type="text" placeholder= 
+                        "Fullname" name="fullname" required> 
+                </div> 
+                <div id="" class="input"> 
+                    <input id="editPhone" type="text" 
+                        name="Phone" 
+                        placeholder="phone"> 
+                </div> 
+              
+                <div id="" class="input"> 
+                    <input id="editAddress" type="text" 
+                        Placeholder="Address" name="address" 
+                        required> 
+                </div> 
+                <div id="" class="input"> 
+                    <input id="editDept" type="text" placeholder= 
+                        "Department" name="department" required> 
+                </div> 
+                <div>
+                <div class="id input"> 
+                    <input type="submit" class="btn btn-success" value="Save" onclick="save()">
+                    <input type="submit" class="btn btn-success" value="Cancel" onclick="cancel()"></div>
+                </div>  
+    </div>
+  </form> 
+</body>
+<script> 
+
+
+</script> 
+<div>
+    <table id="table">
+         <thead> 
+           <tr>
+           <th>NI number <input id="addNI"> </th>
+           <th>Full name <input id="addFullName"></th>
+           <th>Phone <input id="addPhone"></th>
+           <th>Address <input id="addAdd"></th>
+            <th>Department<input id="addDep"></th>
+           <th>Actions
+                <input type="button" value="submit" onclick="addRecord()">
+              </th> 
+            </thead>   
+            </table>  
+            </div> <br>                            
+<div><table id = "employeetable" style="width:100%">
+    <thead>
+        <tr>
+          <th>NI number</th>
+          <th>Fullname</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Department<section class="header">
+            <select name="filter" id="filter">
+              <option value="0" selected disabled hidden>Department</option>
+              <option value="All">All</option>
+              <option value="IT">IT</option>
+              <option value="Sales">Sales</option>
+              <option value="HR">HR</option>
+            </select>
+            <button class="header_btn" onclick="displayFilteredData();">Filter By Department</button>
+          </section></th>
+          <th>Actions<br>  
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+      </table>
+    </div>
+<body onload="show(records)">
+
+</body>
+</html>
