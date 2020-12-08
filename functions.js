@@ -11,6 +11,8 @@ function addRecord() {
     show(records);
     document.getElementById("employeetable").removeAttribute("hidden");
     document.getElementById("newPerson").setAttribute('hidden','hidden');
+    document.getElementById("newPerson").reset()
+
 }
 
 
@@ -23,35 +25,35 @@ function show(records) {
 
     tbodyold.parentNode.replaceChild(tbodynew,tbodyold)
     var tbody = table.children[1];
-
-for (var i = 0; i <records.length; i++){
- var tr = document.createElement("tr");   
- var td1 = document.createElement("td");
- td1.innerHTML = records[i].ninumber;
- var td2 = document.createElement("td");
- td2.innerHTML = records[i].fullname;
- var td3 = document.createElement("td");
- td3.innerHTML = records[i].phone;
- var td4 = document.createElement("td");
- td4.innerHTML = records[i].address;
- var td5 = document.createElement("td");
- td5.innerHTML = records[i].department;
+    
+    for (var i = 0; i <records.length; i++){
+        var tr = document.createElement("tr");   
+        var td1 = document.createElement("td");
+        td1.innerHTML = records[i].ninumber;
+        var td2 = document.createElement("td");
+        td2.innerHTML = records[i].fullname;
+        var td3 = document.createElement("td");
+        td3.innerHTML = records[i].phone;
+        var td4 = document.createElement("td");
+        td4.innerHTML = records[i].address;
+        var td5 = document.createElement("td");
+        td5.innerHTML = records[i].department;
  
- tr.appendChild(td1);
- tr.appendChild(td2);
- tr.appendChild(td3);
- tr.appendChild(td4);
- tr.appendChild(td5);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
 
-  deleteButton = document.createElement("input");
-  deleteButton.type="button";
-  deleteButton.id = "a" + i;
-  deleteButton.dataset.index=i;
-  deleteButton.className = "delete";
-  deleteButton.value = "Del";
-  deleteButton.style.visibility = "visible";
-    deleteButton.onclick = function () {
-      deleteRecord(this);
+        deleteButton = document.createElement("input");
+        deleteButton.type="button";
+        deleteButton.id = "a" + i;
+        deleteButton.dataset.index=i;
+        deleteButton.className = "delete";
+        deleteButton.value = "Del";
+        deleteButton.style.visibility = "visible";
+        deleteButton.onclick = function () {
+            deleteRecord(this);
     };
     let tabCell = tr.insertCell(-1);  
     tabCell.appendChild(deleteButton);
@@ -120,7 +122,7 @@ function save() {
     document.getElementById("employeetable").removeAttribute('hidden');
     document.getElementById("editperson").setAttribute("hidden", "hidden");
 
-    var person = document.getElementById("editperson").value; //get the ninumber here, after edit button pressed
+    var person = document.getElementById("editNI").value; //get the ninumber here, after edit button pressed
 
     for (var i = 0; i < records.length; i++) { //trying to find this person within the records
 
@@ -140,7 +142,11 @@ function save() {
 
 }
 function editrecord(button) {
-    document.getElementById("editperson").removeAttribute("hidden");
+    document.getElementById("newPerson").setAttribute('hidden', 'hidden');
+    document.getElementById("employeetable").setAttribute('hidden', 'hidden');
+    document.getElementById("editperson").removeAttribute('hidden');
+    document.getElementById("newPersonBtn").setAttribute('hidden', 'hidden')
+
 
     for (var i = 0; i < records.length; i++) {
 
@@ -158,6 +164,8 @@ function editrecord(button) {
 
 function cancel() {
     document.getElementById("editperson").setAttribute("hidden", "hidden");
+    document.getElementById("newPersonBtn").setAttribute('hidden')
+    document.getElementById("employeetable").setAttribute('hidden');
 
 }
 
@@ -189,6 +197,7 @@ function confirmEdit(id) {
 //find that person on the array
 //remove person from array
 //rebuild table 
+
 
 
 
