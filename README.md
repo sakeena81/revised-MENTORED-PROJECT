@@ -11,9 +11,13 @@ By Sakeena Ali
 To create a HR application which contains employee information, that also needed to capture the following data:
 
 Employee's NI Number
+
 Employee's Full Name
+
 Employee's Phone number
+
 Employee's Address
+
 Employee's Department 
 
 The project must be written in PURE JavaScript
